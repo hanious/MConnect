@@ -4,6 +4,10 @@
 
 MConnect is a working social media platform made for professionals.
 
+### Teammates
+- [@Pandazelf](https://github.com/Pandazelf)
+- [@plebaotrn](https://github.com/plebaotrn)
+
 ### Installed Packages
 
 - **express** (^5.1.0) – Serves the API and static files
@@ -16,19 +20,21 @@ MConnect is a working social media platform made for professionals.
 - **passport** (^0.7.0) – Authentication middleware
 - **passport-google-oauth20** (^2.0.0) – Google OAuth 2.0 strategy for Passport
 
+--------
 ## Main features
 
 - Single sign-on
 - User one-factor authentication (Username and Passkey)
-- Basic posting functions
+- Basic posting functions (posts, comments, likes)
 - User account customization
+- Rich 
 
 ## Set Up Project
 
 ### If using Docker Desktop
-`docker compose up`
+```docker compose up```
 
---------
+else
 ### Install packages manually
 
 `npm install`
@@ -68,5 +74,7 @@ To enable Google Single Sign-On (SSO), configure your Google Cloud OAuth credent
 Add these in the Google Cloud Console under your OAuth 2.0 Client ID settings.
 
 ### Connect to NodeJS server
-
 `npm run server`
+
+### Open another terminal and connect to browser-sync
+`npm run serve`

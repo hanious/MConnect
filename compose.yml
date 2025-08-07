@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"  # Backend API
+      - "5500:5500"  # Frontend
+    volumes:
+      - ./backend/.env:/app/backend/.env

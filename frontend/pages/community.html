@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mining Operations Community - MConnect</title>
+    <link rel="stylesheet" href="/frontend/assets/css/main.css" />
+    <link rel="stylesheet" href="/frontend/assets/css/community.css" />
+    <link rel="stylesheet" href="/frontend/assets/css/notification.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <script src="/frontend/assets/js/component-loader.js"></script>
+
+    <!-- Community Header -->
+    <section class="community-header">
+      <div class="community-header__container">
+        <div class="community-header__content">
+          <div class="community-header__icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <div class="community-header__info">
+            <h1 class="community-header__title" id="communityTitle">
+              Loading...
+            </h1>
+            <p class="community-header__description" id="communityDescription">
+              Loading...
+            </p>
+            <div class="community-header__stats">
+              <div class="stat">
+                <span class="stat__number" id="membersCount">Loading...</span>
+                <span class="stat__label">Members</span>
+              </div>
+              <div class="stat">
+                <span class="stat__number" id="postsCount">Loading...</span>
+                <span class="stat__label">Posts</span>
+              </div>
+              <div class="stat">
+                <span class="stat__number">24/7</span>
+                <span class="stat__label">Active</span>
+              </div>
+            </div>
+          </div>
+          <div class="community-header__actions" id="communityHeaderActions">
+            <!-- This will be populated dynamically -->
+            <button
+              class="btn btn--primary btn--large"
+              type="button"
+              id="joinCommunityBtn"
+            >
+              <i class="fas fa-users"></i>
+              Join Community
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="community-main">
+      <div class="community-container">
+        <!-- Main Content Area -->
+        <div class="community-content">
+          <!-- Search Interface -->
+          <div class="search-container">
+            <div class="search-box">
+              <div class="search-input-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input
+                  type="text"
+                  id="searchInput"
+                  class="search-input"
+                  placeholder="Search for posts by username..."
+                  autocomplete="off"
+                />
+                <button
+                  id="clearSearch"
+                  class="search-clear"
+                  type="button"
+                  style="display: none"
+                >
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <button id="searchBtn" class="search-button" type="button">
+                <i class="fas fa-search"></i>
+                Search
+              </button>
+            </div>
+
+            <div
+              id="searchResults"
+              class="search-results"
+              style="display: none"
+            >
+              <div class="search-results-header">
+                <h3 id="searchResultsTitle">Search Results</h3>
+                <button id="closeSearch" class="close-search" type="button">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div id="searchResultsList" class="search-results-list">
+                <!-- Search results will be populated here -->
+              </div>
+            </div>
+          </div>
+          <!-- New Post Form -->
+          <div class="new-post-card">
+            <div class="new-post-card__header">
+              <div class="member-avatar">
+                <div class="avatar" id="newPostUserAvatar">YOU</div>
+              </div>
+              <div class="new-post-card__info">
+                <h3>Share with the community</h3>
+                <p>What's on your mind about mining operations?</p>
+              </div>
+            </div>
+            <div class="new-post-card__form">
+              <textarea
+                class="new-post-textarea"
+                placeholder="Share your thoughts, ask questions, or discuss industry topics..."
+                id="postContent"
+              ></textarea>
+
+              <!-- Image Preview -->
+              <div
+                class="image-preview"
+                id="imagePreview"
+                style="display: none"
+              >
+                <img id="previewImg" alt="Preview" />
+                <button
+                  class="image-preview__remove"
+                  id="removeImage"
+                  type="button"
+                >
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+
+              <div class="new-post-card__actions">
+                <div class="post-options">
+                  <button class="post-option" type="button" id="attachImageBtn">
+                    <i class="fas fa-image"></i>
+                    <span>Photo</span>
+                  </button>
+                  <button class="post-option" type="button">
+                    <i class="fas fa-poll"></i>
+                    <span>Poll</span>
+                  </button>
+                  <button class="post-option" type="button">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Location</span>
+                  </button>
+                </div>
+                <button class="btn btn--primary" type="button" id="submitPost">
+                  <i class="fas fa-paper-plane"></i>
+                  Post
+                </button>
+              </div>
+              <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                style="display: none"
+              />
+            </div>
+          </div>
+
+          <!-- Posts Feed -->
+          <div class="posts-feed" id="postsFeed">
+            <!-- Posts will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Members Sidebar -->
+        <div class="members-sidebar">
+          <div class="members-card">
+            <div class="members-header">
+              <h3>Community Members</h3>
+              <span class="members-count" id="membersCountSidebar">0</span>
+            </div>
+
+            <div class="members-list" id="membersList">
+              <!-- Members will be populated by JavaScript -->
+            </div>
+
+            <div class="members-footer">
+              <a href="#" class="view-all-btn">View All Members</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__content">
+          <div class="footer__section">
+            <div class="footer__logo">
+              <div class="logo">
+                <span class="logo__icon">MC</span>
+                <span class="logo__text">MConnect</span>
+              </div>
+            </div>
+            <p class="footer__description">
+              Connecting the global resources industry through collaboration,
+              innovation, and shared expertise.
+            </p>
+          </div>
+
+          <div class="footer__section">
+            <h4 class="footer__title">Platform</h4>
+            <ul class="footer__links">
+              <li>
+                <a href="community.html" class="footer__link">Community</a>
+              </li>
+              <li><a href="#" class="footer__link">Resources</a></li>
+              <li><a href="#" class="footer__link">Safety Hub</a></li>
+              <li><a href="#" class="footer__link">Analytics</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__section">
+            <h4 class="footer__title">Support</h4>
+            <ul class="footer__links">
+              <li><a href="#" class="footer__link">Help Center</a></li>
+              <li><a href="#" class="footer__link">Contact Us</a></li>
+              <li><a href="#" class="footer__link">Privacy Policy</a></li>
+              <li><a href="#" class="footer__link">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copyright">
+            &copy; 2025 MConnect. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Comment Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="comment-modal" id="commentModal">
+        <div class="comment-modal__header">
+          <h3 class="comment-modal__title">Comments</h3>
+          <button class="comment-modal__close" id="closeModal" type="button">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="comment-modal__content">
+          <div class="comments-list" id="commentsList"></div>
+
+          <div class="comment-form">
+            <div class="comment-form__header">
+              <div class="member-avatar">
+                <div class="avatar" id="commentUserAvatar">YOU</div>
+              </div>
+              <div class="comment-form__info">
+                <h4>Add a comment</h4>
+                <p>Share your thoughts on this post</p>
+              </div>
+            </div>
+
+            <div class="comment-form__input">
+              <textarea
+                class="comment-textarea"
+                placeholder="Write your comment..."
+                id="commentContent"
+              ></textarea>
+
+              <div class="comment-form__actions">
+                <div class="comment-options">
+                  <button
+                    class="comment-option"
+                    type="button"
+                    id="attachCommentImage"
+                  >
+                    <i class="fas fa-image"></i>
+                    <span>Photo</span>
+                  </button>
+                  <button class="comment-option" type="button">
+                    <i class="fas fa-smile"></i>
+                    <span>Emoji</span>
+                  </button>
+                </div>
+                <button
+                  class="btn btn--primary btn--small"
+                  type="button"
+                  id="submitComment"
+                >
+                  <i class="fas fa-paper-plane"></i>
+                  Comment
+                </button>
+              </div>
+              <input
+                type="file"
+                id="commentImageInput"
+                accept="image/*"
+                style="display: none"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Community Modal -->
+    <div id="communityEditModal" class="modal">
+      <div class="modal-content">
+        <span id="closeCommunityEdit" class="close">&times;</span>
+        <h3>Edit Community Info</h3>
+        <div class="form-group">
+          <label for="editCommunityName">Community Name</label>
+          <input
+            id="editCommunityName"
+            type="text"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="editCommunityDesc">Description</label>
+          <textarea
+            id="editCommunityDesc"
+            class="form-control"
+            rows="4"
+          ></textarea>
+        </div>
+        <button id="saveCommunityEdit" class="btn btn--primary" type="button">
+          Save Changes
+        </button>
+      </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div class="modal-overlay" id="notificationModal">
+      <div class="notification-modal">
+        <div class="notification-modal__header">
+          <h3 class="notification-modal__title">Notifications</h3>
+          <button
+            class="notification-modal__close"
+            id="closeNotificationModal"
+            type="button"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="notification-modal__content">
+          <div id="notificationList">
+            <!-- Notifications will be populated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/frontend/assets/js/header.js"></script>
+    <script src="/frontend/assets/js/comm.js"></script>
+  </body>
+</html>

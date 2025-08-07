@@ -1,0 +1,43 @@
+{
+  "name": "cos20031-may-group-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch frontend/assets/scss:frontend/assets/css",
+    "sass:build": "sass frontend/assets/scss:frontend/assets/css --style=compressed",
+    "serve": "browser-sync start --server . --files \"frontend/pages/*.html, frontend/assets/css/*.css, frontend/assets/js/*.js\" --startPath frontend/pages/index.html --port 5500",
+    "dev": "npm-run-all --parallel sass serve",
+    "init": "node backend/database/init.js",
+    "generate-data": "node backend/database/generate-data.js",
+    "server": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pandazelf/COS20031-May-Group-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pandazelf/COS20031-May-Group-1/issues"
+  },
+  "homepage": "https://github.com/Pandazelf/COS20031-May-Group-1#readme",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.1.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "sqlite3": "^5.1.7"
+  }
+}

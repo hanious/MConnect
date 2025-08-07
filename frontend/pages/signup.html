@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - MConnect</title>
+    <link rel="stylesheet" href="/frontend/assets/css/main.css" />
+    <link rel="stylesheet" href="/frontend/assets/css/login.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet" />
+  </head>
+  <body class="auth-page">
+    <!-- Floating Elements Background -->
+    <div class="floating-elements">
+      <div class="floating-element floating-element--1"></div>
+      <div class="floating-element floating-element--2"></div>
+      <div class="floating-element floating-element--3"></div>
+      <div class="floating-element floating-element--4"></div>
+      <div class="floating-element floating-element--5"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header header--minimal">
+      <div class="header__container">
+        <div class="header__logo">
+          <a href="index.html" class="logo">
+            <span class="logo__icon">MC</span>
+            <span class="logo__text">MConnect</span>
+          </a>
+        </div>
+
+        <div class="header__actions">
+          <a href="index.html" class="btn btn--ghost btn--small">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Auth Container -->
+    <main class="auth-main">
+      <div class="auth-container">
+        <!-- Auth Card -->
+        <div class="auth-card" id="authCard">
+          <!-- Card Header -->
+          <div class="auth-card__header">
+            <div class="auth-logo">
+              <div class="logo logo--auth">
+                <span class="logo__icon">MC</span>
+              </div>
+            </div>
+            <div class="auth-title">
+              <h1>Join MConnect</h1>
+              <p>Create your account to get started</p>
+            </div>
+          </div>
+
+          <!-- Signup Form -->
+          <div class="auth-form auth-form--active" id="signupForm">
+            <form class="form" id="signupFormElement">
+              <div class="form-row">
+                <div class="input-group">
+                  <div class="input-wrapper">
+                    <i class="fas fa-user input-icon"></i>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      class="form-input"
+                      placeholder="First Name"
+                      required />
+                  </div>
+                  <div class="input-error" id="firstNameError"></div>
+                </div>
+
+                <div class="input-group">
+                  <div class="input-wrapper">
+                    <i class="fas fa-user input-icon"></i>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      class="form-input"
+                      placeholder="Last Name"
+                      required />
+                  </div>
+                  <div class="input-error" id="lastNameError"></div>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <i class="fas fa-user input-icon"></i>
+                  <input
+                    type="email"
+                    id="signupEmail"
+                    name="email"
+                    class="form-input"
+                    placeholder="Email"
+                    required />
+                </div>
+                <div class="input-error" id="signupEmailError"></div>
+              </div>
+
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <i class="fas fa-building input-icon"></i>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    class="form-input"
+                    placeholder="Company Name (e.g. ABC Corp)"
+                    required />
+                </div>
+                <div class="input-error" id="companyError"></div>
+              </div>
+
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <i class="fas fa-briefcase input-icon"></i>
+                  <select
+                    id="jobTitle"
+                    name="jobTitle"
+                    class="form-input"
+                    required>
+                    <option value="">Select your role</option>
+                    <option value="operations-manager">
+                      Operations Manager
+                    </option>
+                    <option value="senior-engineer">
+                      Senior Engineer
+                    </option>
+                    <option value="safety-coordinator">
+                      Safety Coordinator
+                    </option>
+                    <option value="project-manager">
+                      Project Manager
+                    </option>
+                    <option value="field-supervisor">
+                      Field Supervisor
+                    </option>
+                    <option value="technical-specialist">
+                      Technical Specialist
+                    </option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="input-error" id="jobTitleError"></div>
+              </div>
+
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <i class="fas fa-industry input-icon"></i>
+                  <select
+                    id="industry"
+                    name="industry"
+                    class="form-input"
+                    required>
+                    <option value="">Select your industry</option>
+                    <option value="mining">Mining & Minerals</option>
+                    <option value="oil-gas">Oil & Gas</option>
+                    <option value="renewable-energy">Renewable Energy</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="construction">Construction</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="input-error" id="industryError"></div>
+              </div>
+
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <i class="fas fa-lock input-icon"></i>
+                  <input
+                    type="password"
+                    id="signupPassword"
+                    name="password"
+                    class="form-input"
+                    minlength="8"
+                    maxlength="20"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    placeholder="Password"
+                    required />
+                  <button
+                    type="button"
+                    class="password-toggle"
+                    data-target="signupPassword">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <div class="password-strength" id="passwordStrength">
+                  <div class="strength-bar">
+                    <div class="strength-fill"></div>
+                  </div>
+                  <span class="strength-text">Password strength</span>
+                </div>
+                <div class="input-error" id="signupPasswordError"></div>
+              </div>
+
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <i class="fas fa-lock input-icon"></i>
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    class="form-input"
+                    placeholder="Confirm Password"
+                    required />
+                  <button
+                    type="button"
+                    class="password-toggle"
+                    data-target="confirmPassword">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <div class="input-error" id="confirmPasswordError"></div>
+              </div>
+
+              <div class="input-group">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" id="agreeTerms" name="agreeTerms" />
+                  <span class="checkbox-mark"></span>
+                  <span class="checkbox-text">
+                    I agree to the
+                    <a href="#" class="link">Terms of Service</a> and
+                    <a href="#" class="link">Privacy Policy</a>
+                  </span>
+                </label>
+                <div class="input-error" id="agreeTermsError"></div>
+              </div>
+
+              <div class="input-group">
+                <label class="checkbox-wrapper">
+                  <input
+                    type="checkbox"
+                    id="subscribeNewsletter"
+                    name="subscribeNewsletter" />
+                  <span class="checkbox-mark"></span>
+                  <span class="checkbox-text">
+                    Subscribe to our newsletter for industry updates and
+                    insights
+                  </span>
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn--primary btn--large btn--full">
+                <span class="btn-text">
+                  <i class="fas fa-rocket"></i>
+                  Create Account
+                </span>
+                <span class="btn-loader">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="auth-card__footer">
+            <p class="switch-text">
+              <span>Already have an account?</span>
+              <a href="login.html" class="switch-btn">Sign in</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Features Preview -->
+        <div class="signup-features">
+          <h3 class="signup-features__title">
+            Join thousands of professionals
+          </h3>
+          <div class="signup-features__list">
+            <div class="signup-feature">
+              <div class="signup-feature__icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="signup-feature__content">
+                <h4>Industry Communities</h4>
+                <p>
+                  Connect with experts in mining, oil & gas, and renewable
+                  energy
+                </p>
+              </div>
+            </div>
+
+            <div class="signup-feature">
+              <div class="signup-feature__icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="signup-feature__content">
+                <h4>Safety Resources</h4>
+                <p>
+                  Access safety protocols and best practices from industry
+                  leaders
+                </p>
+              </div>
+            </div>
+
+            <div class="signup-feature">
+              <div class="signup-feature__icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="signup-feature__content">
+                <h4>Market Insights</h4>
+                <p>
+                  Stay updated with the latest industry trends and analytics
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../assets/js/header.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/signup.js"></script>
+  </body>
+</html>

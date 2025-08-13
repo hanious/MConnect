@@ -1,8 +1,8 @@
-# COS20031-May-Group-1
+# MConnect
 
 ## Summary
 
-MConnect is a working social media platform made for professionals.
+MConnect is a working social media platform made for professionals using vanilla JavaScript.
 
 ### Teammates
 - [@Pandazelf](https://github.com/Pandazelf)

@@ -27,7 +27,7 @@ MConnect is a working social media platform made for professionals using vanilla
 - User one-factor authentication (Username and Passkey)
 - Basic posting functions (posts, comments, likes)
 - User account customization
-- Rich 
+- Rich UI/UX components
 
 ## Set Up Project
 
